@@ -10,15 +10,60 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      3198,        109]
-NotebookOptionsPosition[      2904,         96]
-NotebookOutlinePosition[      3245,        111]
-CellTagsIndexPosition[      3202,        108]
+NotebookDataLength[      4708,        155]
+NotebookOptionsPosition[      4413,        142]
+NotebookOutlinePosition[      4754,        157]
+CellTagsIndexPosition[      4711,        154]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 Cell[BoxData[{
+ RowBox[{"theta", "=", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"90", "/", "325"}], "*", "t"}], "+", 
+    SubscriptBox["theta", "0"]}], ")"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Subscript", "[", 
+   RowBox[{"A", ",", 
+    RowBox[{"Subscript", "[", 
+     RowBox[{"east", ",", "sun"}], "]"}]}], "]"}], "=", 
+  RowBox[{"(", 
+   RowBox[{"height", "-", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"x", "/", 
+       RowBox[{"(", 
+        RowBox[{"Tan", "[", 
+         RowBox[{"90", "-", "theta"}], "]"}], ")"}]}], ")"}], "/", 
+     RowBox[{"Tan", "[", "theta", "]"}]}]}], ")"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Subscript", "[", 
+   RowBox[{"Watt", ",", "time"}], "]"}], "=", 
+  RowBox[{"ebsilon", "*", "sigma", "*", 
+   RowBox[{
+    RowBox[{"Subscript", "[", 
+     RowBox[{"T", ",", "floor"}], "]"}], "^", "4"}]}]}], "\n", 
+ RowBox[{
+  RowBox[{"Subscript", "[", 
+   RowBox[{"Q", ",", 
+    RowBox[{"Subscript", "[", 
+     RowBox[{"sun", ",", "east"}], "]"}]}], "]"}], "=", 
+  RowBox[{"Piecewise", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Subscript", "[", 
+        RowBox[{"Watt", ",", "time"}], "]"}], "*", 
+       RowBox[{"Subscript", "[", 
+        RowBox[{"A", ",", 
+         RowBox[{"Subscript", "[", 
+          RowBox[{"east", ",", "sun"}], "]"}]}], "]"}]}], ",", 
+      RowBox[{"0", "<", "t", "<", "12"}]}], "}"}], ",", "0"}], 
+   "]"}]}], "\[IndentingNewLine]", 
  RowBox[{
   SubscriptBox["Q", "UA"], "=", 
   RowBox[{
@@ -90,8 +135,9 @@ Cell[BoxData[{
   3.778752368898842*^9, 3.7787524953658524`*^9}, {3.778752605445671*^9, 
   3.7787526600159864`*^9}, {3.7787526929267607`*^9, 3.778752829590133*^9}, {
   3.778752909350757*^9, 3.7787529340096755`*^9}, {3.7787530041628466`*^9, 
-  3.778753049303548*^9}, {3.778753083026351*^9, 
-  3.7787532290634327`*^9}},ExpressionUUID->"46a7e267-c952-4e8f-a11f-\
+  3.778753049303548*^9}, {3.778753083026351*^9, 3.7787532290634327`*^9}, {
+  3.778753380676966*^9, 3.7787534278978257`*^9}, {3.778755220182473*^9, 
+  3.778755244295904*^9}},ExpressionUUID->"46a7e267-c952-4e8f-a11f-\
 0d7897fae106"]
 },
 WindowSize->{638, 628},
@@ -110,7 +156,7 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 2342, 74, 143, "Input",ExpressionUUID->"46a7e267-c952-4e8f-a11f-0d7897fae106"]
+Cell[558, 20, 3851, 120, 276, "Input",ExpressionUUID->"46a7e267-c952-4e8f-a11f-0d7897fae106"]
 }
 ]
 *)
