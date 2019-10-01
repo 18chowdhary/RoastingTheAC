@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     42637,       1018]
-NotebookOptionsPosition[     41139,        990]
-NotebookOutlinePosition[     41503,       1006]
-CellTagsIndexPosition[     41460,       1003]
+NotebookDataLength[     31592,        871]
+NotebookOptionsPosition[     30386,        846]
+NotebookOutlinePosition[     30750,        862]
+CellTagsIndexPosition[     30707,        859]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -48,12 +48,13 @@ Cell[BoxData[{
     "the", " ", "lower", " ", "floor", " ", "from", " ", "the", " ", "bottom",
      " ", "of", " ", "the", " ", "awning"}], "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"lengthAwning", " ", "=", " ", "30"}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"lengthAwningcons", " ", "=", " ", "30"}], 
+  ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"epsilon", " ", "=", " ", "0.7"}], " ", ";", 
+   RowBox[{"epsiloncons", " ", "=", " ", "0.7"}], " ", ";", 
    RowBox[{"(*", "emmisivity", "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"sigma", " ", "=", " ", 
+   RowBox[{"sigmacons", " ", "=", " ", 
     RowBox[{"5.670", "*", 
      RowBox[{"10", "^", 
       RowBox[{"(", 
@@ -61,39 +62,42 @@ Cell[BoxData[{
    RowBox[{"(*", 
     RowBox[{"Stefan", "-", 
      RowBox[{"Boltzmann", " ", "constant"}]}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"theta", "[", "t_", "]"}], "=", 
-    RowBox[{"(", 
-     RowBox[{
-      RowBox[{
-       RowBox[{"90", "/", "325"}], "*", "t"}], "+", 
-      SubscriptBox["theta", "0"]}], ")"}]}], " ", ";", 
-   RowBox[{"(*", 
+   RowBox[{"thetanot", " ", "=", " ", "0"}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"initial", " ", "angle", " ", "of", " ", "the", " ", "sun"}], 
+   "*)"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"thetaang", "[", "t_", "]"}], "=", 
+   RowBox[{"(", 
     RowBox[{
-    "angle", " ", "of", " ", "the", " ", "elevation", " ", "of", " ", "the", 
-     " ", "sun"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{
-     SubscriptBox["A", "suneastu"], "[", "t_", "]"}], "=", 
-    RowBox[{"(", 
      RowBox[{
-      SubscriptBox["height", "U"], "-", 
-      RowBox[{
-       RowBox[{"(", 
-        RowBox[{"lengthAwning", "/", 
-         RowBox[{"(", 
-          RowBox[{"Tan", "[", 
-           RowBox[{"90", "-", 
-            RowBox[{"theta", "[", "t", "]"}]}], "]"}], ")"}]}], ")"}], "/", 
-       RowBox[{"Tan", "[", 
-        RowBox[{"theta", "[", "t", "]"}], "]"}]}]}], ")"}]}], " ", ";"}], 
+      RowBox[{"90", "/", "325"}], "*", "t"}], "+", "thetanot"}], ")"}]}], " ",
+   ";", 
+  RowBox[{"(*", 
+   RowBox[{
+   "angle", " ", "of", " ", "the", " ", "elevation", " ", "of", " ", "the", 
+    " ", "sun"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    SubscriptBox["A", "suneastu"], "[", "t_", "]"}], "=", 
+   RowBox[{"(", 
+    RowBox[{
+     SubscriptBox["height", "U"], "-", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"lengthAwningcons", "/", 
+        RowBox[{"(", 
+         RowBox[{"Tan", "[", 
+          RowBox[{"90", "-", 
+           RowBox[{"thetaang", "[", "t", "]"}]}], "]"}], ")"}]}], ")"}], "/", 
+      RowBox[{"Tan", "[", 
+       RowBox[{"thetaang", "[", "t", "]"}], "]"}]}]}], ")"}]}], " ", ";", 
   RowBox[{"(*", 
    RowBox[{
    "areas", " ", "of", " ", "the", " ", "floor", " ", "that", " ", "is", " ", 
-    "covered", " ", "by", " ", "the", " ", "sun"}], 
-   "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{
+    "covered", " ", "by", " ", "the", " ", "sun"}], "*)"}], 
+  "\[IndentingNewLine]", 
   RowBox[{
    RowBox[{
     SubscriptBox["A", "suneastl"], "[", "t_", "]"}], "=", 
@@ -102,37 +106,41 @@ Cell[BoxData[{
      SubscriptBox["height", "L"], "-", 
      RowBox[{
       RowBox[{"(", 
-       RowBox[{"lengthAwning", "/", 
+       RowBox[{"lengthAwningcons", "/", 
         RowBox[{"(", 
          RowBox[{"Tan", "[", 
           RowBox[{"90", "-", 
-           RowBox[{"theta", "[", "t", "]"}]}], "]"}], ")"}]}], ")"}], "/", 
+           RowBox[{"thetaang", "[", "t", "]"}]}], "]"}], ")"}]}], ")"}], "/", 
       RowBox[{"Tan", "[", 
-       RowBox[{"theta", "[", "t", "]"}], "]"}]}]}], ")"}]}], 
+       RowBox[{"thetaang", "[", "t", "]"}], "]"}]}]}], ")"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{
-    SubscriptBox["A", "sunsouth"], " ", "=", " ", "50"}], " ", ";", 
-   RowBox[{"(*", 
-    RowBox[{"area", " ", "of", " ", "the", " ", "window"}], "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    SubscriptBox["A", "sunsouth"], " ", "=", " ", "50"}], " ", ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"area", " ", "of", " ", "the", " ", "window"}], "*)"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
    RowBox[{
     RowBox[{
      SubscriptBox["Watt", "u"], "[", "t_", "]"}], "=", 
-    RowBox[{"epsilon", "*", "sigma", "*", 
+    RowBox[{"epsiloncons", "*", "sigmacons", "*", 
      RowBox[{
       RowBox[{
-       SubscriptBox["T", "u"], "[", "t", "]"}], "^", "4"}]}]}], " ", ";", 
-   RowBox[{"(*", 
-    RowBox[{
-    "power", " ", "put", " ", "into", " ", "the", " ", "system", " ", "by", 
-     " ", "the", " ", "sun", " ", "on", " ", "both", " ", "floors"}], "*)"}], 
-   "\[IndentingNewLine]", 
+       SubscriptBox["T", "u"], "[", "t", "]"}], "^", "4"}]}]}], " ", ";"}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "power", " ", "put", " ", "into", " ", "the", " ", "system", " ", "by", 
+    " ", "the", " ", "sun", " ", "on", " ", "both", " ", "floors"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
    RowBox[{
     RowBox[{
      SubscriptBox["Watt", "l"], "[", "t_", "]"}], "=", 
-    RowBox[{"epsilon", "*", "sigma", "*", 
+    RowBox[{"epsiloncons", "*", "sigmacons", "*", 
      RowBox[{
       RowBox[{
        SubscriptBox["T", "l"], "[", "t", "]"}], "^", "4"}]}]}], ";"}], 
@@ -221,9 +229,10 @@ Cell[BoxData[{
   3.7788424115916038`*^9}, {3.7788424583624988`*^9, 3.7788424829934044`*^9}, {
   3.7789535692657347`*^9, 3.778953589162343*^9}, {3.7789537069200263`*^9, 
   3.778953742803011*^9}, {3.7789538353751917`*^9, 3.7789538764189243`*^9}, {
-  3.778954634580695*^9, 
-  3.7789548020799303`*^9}},ExpressionUUID->"a34a74fe-25c4-40c8-8a0b-\
-ffc98c510a3b"],
+  3.778954634580695*^9, 3.7789548020799303`*^9}, {3.7789562415733647`*^9, 
+  3.778956255949293*^9}, {3.7789562910505133`*^9, 3.7789562911515207`*^9}, {
+  3.778956374312148*^9, 3.778956464277544*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"a34a74fe-25c4-40c8-8a0b-ffc98c510a3b"],
 
 Cell["\<\
 The equations below describe the temperature of the upper and lower floors.\
@@ -250,9 +259,7 @@ Cell[BoxData[{
    "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{
-    SubscriptBox["dT", "u"], 
-    RowBox[{"dt", "[", "t_", "]"}]}], "=", " ", 
+   RowBox[{"dTudt", "[", "t_", "]"}], "=", " ", 
    RowBox[{
     RowBox[{"(", 
      RowBox[{
@@ -274,9 +281,7 @@ Cell[BoxData[{
       SubscriptBox["c", "floor"]}], ")"}]}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{
-    SubscriptBox["dT", "l"], 
-    RowBox[{"dt", "[", "t_", "]"}]}], " ", "=", " ", 
+   RowBox[{"dTldt", "[", "t_", "]"}], " ", "=", " ", 
    RowBox[{
     RowBox[{"(", 
      RowBox[{
@@ -296,9 +301,9 @@ Cell[BoxData[{
   3.7788426455140142`*^9, 3.7788427567843337`*^9}, {3.7788427911548214`*^9, 
   3.7788428902366548`*^9}, {3.7789535487081776`*^9, 3.778953550939178*^9}, {
   3.7789538940129023`*^9, 3.778953901747038*^9}, {3.778953967199971*^9, 
-  3.7789540442309313`*^9}, {3.7789548130119944`*^9, 
-  3.7789548828749557`*^9}},ExpressionUUID->"2d89688c-040c-4042-a6af-\
-e34086cf4b1c"],
+  3.7789540442309313`*^9}, {3.7789548130119944`*^9, 3.7789548828749557`*^9}, {
+  3.7789553087586856`*^9, 3.7789553160876493`*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"2d89688c-040c-4042-a6af-e34086cf4b1c"],
 
 Cell["\<\
 The equations below describe the temperatures of the different air sections \
@@ -353,17 +358,18 @@ Cell[BoxData[{
     " ", "AC"}], "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{
-    SubscriptBox["A", "glassmiddle"], " ", "=", " ", "50"}], " ", ";"}], 
+   SubscriptBox["A", "glassendcap"], " ", "=", " ", "50"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["A", "glassmiddle"], " ", "=", " ", "50"}], " ", ";", 
   RowBox[{"(*", 
    RowBox[{
    "area", " ", "of", " ", "the", " ", "glass", " ", "facing", " ", "east", 
     " ", "in", " ", "one", " ", "floor", " ", "in", " ", "the", " ", "middle",
-     " ", "of", " ", "the", " ", "ac"}], "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{
+     " ", "of", " ", "the", " ", "ac"}], "*)"}], "\[IndentingNewLine]", 
   RowBox[{
-   RowBox[{
-    SubscriptBox["h", "glass"], " ", "=", " ", "50"}], " ", ";"}], 
+   SubscriptBox["h", "glass"], " ", "=", " ", "50"}], " ", ";", 
   RowBox[{"(*", 
    RowBox[{
     RowBox[{
@@ -372,8 +378,7 @@ Cell[BoxData[{
     RowBox[{"conduction", " ", "through", " ", "glass"}], ",", " ", 
     RowBox[{
     "and", " ", "convection", " ", "to", " ", "the", " ", "outside", " ", 
-     "world"}]}], "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{
+     "world"}]}], "*)"}], "\[IndentingNewLine]", 
   RowBox[{
    SubscriptBox["T", "out"], " ", "=", " ", "50"}], " ", ";", 
   RowBox[{"(*", 
@@ -565,9 +570,7 @@ Cell[BoxData[{
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{
-    SubscriptBox["dT", "a"], 
-    RowBox[{"dt", "[", "t_", "]"}]}], " ", "=", " ", 
+   RowBox[{"dTadt", "[", "t_", "]"}], " ", "=", " ", 
    RowBox[{
     RowBox[{"(", 
      RowBox[{
@@ -583,9 +586,7 @@ Cell[BoxData[{
       SubscriptBox["c", "air"]}], ")"}]}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{
-    SubscriptBox["dT", "b"], 
-    RowBox[{"dt", "[", "t_", "]"}]}], " ", "=", " ", 
+   RowBox[{"dTbdt", "[", "t_", "]"}], " ", "=", " ", 
    RowBox[{
     RowBox[{"(", 
      RowBox[{
@@ -601,9 +602,7 @@ Cell[BoxData[{
       SubscriptBox["c", "air"]}], ")"}]}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{
-    SubscriptBox["dT", "c"], 
-    RowBox[{"dt", "[", "t_", "]"}]}], " ", "=", " ", 
+   RowBox[{"dTcdt", "[", "t_", "]"}], " ", "=", " ", 
    RowBox[{
     RowBox[{"(", 
      RowBox[{
@@ -621,9 +620,7 @@ Cell[BoxData[{
       SubscriptBox["c", "air"]}], ")"}]}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{
-    SubscriptBox["dT", "d"], 
-    RowBox[{"dt", "[", "t_", "]"}]}], " ", "=", " ", 
+   RowBox[{"dTddt", "[", "t_", "]"}], " ", "=", " ", 
    RowBox[{
     RowBox[{"(", 
      RowBox[{
@@ -648,9 +645,9 @@ Cell[BoxData[{
    3.778952298806608*^9}, {3.7789534687189603`*^9, 3.778953535590514*^9}, {
    3.7789540533549743`*^9, 3.778954125912941*^9}, {3.7789545988583755`*^9, 
    3.778954619114832*^9}, {3.778954896536953*^9, 3.7789549738768854`*^9}, {
-   3.778955008242894*^9, 
-   3.778955191671803*^9}},ExpressionUUID->"0a1b27c3-4433-42d0-80b7-\
-00ee3d78d2ca"],
+   3.778955008242894*^9, 3.778955191671803*^9}, {3.7789553214956694`*^9, 
+   3.7789553318527145`*^9}, {3.7789565708417253`*^9, 3.778956581168923*^9}},
+ CellLabel->"In[16]:=",ExpressionUUID->"0a1b27c3-4433-42d0-80b7-00ee3d78d2ca"],
 
 Cell["\<\
 Now, we will use NDSolve to generate discrete numerical approximations for \
@@ -671,63 +668,57 @@ Cell[BoxData[
       RowBox[{
        RowBox[{
         RowBox[{
-         SubscriptBox["T", "u"], "'"}], "[", "t", "]"}], " ", "\[Equal]", " ", 
-       RowBox[{
-        SubscriptBox["dT", "u"], "dt"}]}], ",", "\[IndentingNewLine]", 
+         SubscriptBox["T", "u"], "'"}], "[", "t", "]"}], " ", "\[Equal]", " ",
+        "dTudt"}], ",", "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{
         RowBox[{
-         SubscriptBox["T", "l"], "'"}], "[", "t", "]"}], " ", "\[Equal]", " ", 
-       RowBox[{
-        SubscriptBox["dT", "l"], "dt"}]}], ",", "\[IndentingNewLine]", 
+         SubscriptBox["T", "l"], "'"}], "[", "t", "]"}], " ", "\[Equal]", " ",
+        "dTldt"}], ",", "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{
         RowBox[{
-         SubscriptBox["T", "a"], "'"}], "[", "t", "]"}], " ", "\[Equal]", " ", 
-       RowBox[{
-        SubscriptBox["dT", "a"], "dt"}]}], ",", "\[IndentingNewLine]", 
+         SubscriptBox["T", "a"], "'"}], "[", "t", "]"}], " ", "\[Equal]", " ",
+        "dTadt"}], ",", "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{
         RowBox[{
-         SubscriptBox["T", "b"], "'"}], "[", "t", "]"}], " ", "\[Equal]", " ", 
-       RowBox[{
-        SubscriptBox["dT", "b"], "dt"}]}], ",", "\[IndentingNewLine]", 
+         SubscriptBox["T", "b"], "'"}], "[", "t", "]"}], " ", "\[Equal]", " ",
+        "dTbdt"}], ",", "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{
         RowBox[{
-         SubscriptBox["T", "c"], "'"}], "[", "t", "]"}], " ", "\[Equal]", " ", 
-       RowBox[{
-        SubscriptBox["dT", "c"], "dt"}]}], ",", "\[IndentingNewLine]", 
+         SubscriptBox["T", "c"], "'"}], "[", "t", "]"}], " ", "\[Equal]", " ",
+        "dTcdt"}], ",", "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{
         RowBox[{
-         SubscriptBox["T", "d"], "'"}], "[", "t", "]"}], " ", "\[Equal]", " ", 
-       RowBox[{
-        SubscriptBox["dT", "d"], "dt"}]}], ",", "\[IndentingNewLine]", 
+         SubscriptBox["T", "d"], "'"}], "[", "t", "]"}], " ", "\[Equal]", " ",
+        "dTddt"}], ",", "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{
-        SubscriptBox["T", "u"], "[", "0", "]"}], "\[Equal]", " ", "0"}], ",", 
+        SubscriptBox["T", "u"], "[", "0", "]"}], "\[Equal]", " ", "1"}], ",", 
       "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{
-        SubscriptBox["T", "l"], "[", "0", "]"}], " ", "\[Equal]", " ", "0"}], 
+        SubscriptBox["T", "l"], "[", "0", "]"}], " ", "\[Equal]", " ", "1"}], 
       ",", "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{
-        SubscriptBox["T", "a"], "[", "0", "]"}], " ", "\[Equal]", " ", "0"}], 
+        SubscriptBox["T", "a"], "[", "0", "]"}], " ", "\[Equal]", " ", "1"}], 
       ",", "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{
-        SubscriptBox["T", "b"], "[", "0", "]"}], " ", "\[Equal]", " ", "0"}], 
+        SubscriptBox["T", "b"], "[", "0", "]"}], " ", "\[Equal]", " ", "1"}], 
       ",", "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{
-        SubscriptBox["T", "c"], "[", "0", "]"}], " ", "\[Equal]", " ", "0"}], 
+        SubscriptBox["T", "c"], "[", "0", "]"}], " ", "\[Equal]", " ", "1"}], 
       ",", "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{
         SubscriptBox["T", "d"], "[", "0", "]"}], " ", "\[Equal]", " ", 
-       "0"}]}], "\[IndentingNewLine]", "}"}], ",", 
+       "1"}]}], "\[IndentingNewLine]", "}"}], ",", 
     RowBox[{"{", "\[IndentingNewLine]", 
      RowBox[{
       RowBox[{
@@ -744,248 +735,113 @@ Cell[BoxData[
        SubscriptBox["T", "d"], "[", "t", "]"}]}], "\[IndentingNewLine]", 
      "}"}], ",", "\[IndentingNewLine]", 
     RowBox[{"{", 
-     RowBox[{"t", ",", "1", ",", "650"}], "}"}]}], "]"}]}]], "Input",
+     RowBox[{"t", ",", "0", ",", "650"}], "}"}]}], "]"}]}]], "Input",
  CellChangeTimes->{{3.7789524839148903`*^9, 3.7789526855750327`*^9}, {
   3.7789527968010883`*^9, 3.778952813909048*^9}, {3.778952993416249*^9, 
   3.778953087117194*^9}, {3.7789532438376045`*^9, 3.7789532499725456`*^9}, {
   3.778953315917591*^9, 3.7789533165616055`*^9}, {3.7789541339729795`*^9, 
   3.778954167124957*^9}, {3.7789544290590715`*^9, 3.7789544941604033`*^9}, {
-  3.7789551949808383`*^9, 
-  3.7789552919636755`*^9}},ExpressionUUID->"a4e86915-9b8a-467a-ba50-\
-29111f4f7db7"],
+  3.7789551949808383`*^9, 3.7789552919636755`*^9}, {3.7789553358777046`*^9, 
+  3.7789553445467587`*^9}, {3.778955827046807*^9, 3.778955848512042*^9}, {
+  3.7789559903556185`*^9, 3.7789560012386103`*^9}},
+ CellLabel->"In[37]:=",ExpressionUUID->"a4e86915-9b8a-467a-ba50-29111f4f7db7"],
 
 Cell[BoxData[
  TemplateBox[{
-  "NDSolve","nlnum",
-   "\"The function value \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{RowBox[{\
-\\\"0.`\\\", \\\"\[VeryThinSpace]\\\"}], \\\"-\\\", \\\"dTAdt\\\"}], \
-\\\",\\\", RowBox[{RowBox[{\\\"0.`\\\", \\\"\[VeryThinSpace]\\\"}], \
-\\\"-\\\", \\\"dTBdt\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"0.`\\\", \\\"\
-\[VeryThinSpace]\\\"}], \\\"-\\\", \\\"dTCdt\\\"}], \\\",\\\", \
-RowBox[{RowBox[{\\\"0.`\\\", \\\"\[VeryThinSpace]\\\"}], \\\"-\\\", \\\"dTDdt\
-\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"0.`\\\", \\\"\[VeryThinSpace]\\\"}], \
-\\\"-\\\", \\\"dTLdt\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"-\\\", \\\"dTUdt\\\
-\"}], \\\"+\\\", FractionBox[RowBox[{RowBox[{\\\"0.`\\\", \
-\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"2\\\", \\\" \\\", RowBox[{\
-\\\"Piecewise\\\", \\\"[\\\", RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"{\\\", \
-RowBox[{\\\"\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\"}], \\\"}\
-\\\"}], \\\"}\\\"}], \\\",\\\", \\\"0\\\"}], \\\"]\\\"}]}]}], \
-\\\"2500\\\"]}]}], \\\"}\\\"}]\\) is not a list of numbers with dimensions \
-\\!\\(\\*RowBox[{\\\"{\\\", \\\"6\\\", \\\"}\\\"}]\\) at \
-\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"t\\\", \\\",\\\", \
-RowBox[{SubscriptBox[\\\"T\\\", \\\"A\\\"], \\\"[\\\", \\\"t\\\", \
-\\\"]\\\"}], \\\",\\\", RowBox[{SubscriptBox[\\\"T\\\", \\\"B\\\"], \
-\\\"[\\\", \\\"t\\\", \\\"]\\\"}], \\\",\\\", RowBox[{SubscriptBox[\\\"T\\\", \
-\\\"C\\\"], \\\"[\\\", \\\"t\\\", \\\"]\\\"}], \\\",\\\", \
-RowBox[{SubscriptBox[\\\"T\\\", \\\"D\\\"], \\\"[\\\", \\\"t\\\", \
-\\\"]\\\"}], \\\",\\\", RowBox[{SubscriptBox[\\\"T\\\", \\\"L\\\"], \
-\\\"[\\\", \\\"t\\\", \\\"]\\\"}], \\\",\\\", RowBox[{SubscriptBox[\\\"T\\\", \
-\\\"U\\\"], \\\"[\\\", \\\"t\\\", \\\"]\\\"}], \\\",\\\", \
-RowBox[{SuperscriptBox[SubscriptBox[\\\"T\\\", \\\"A\\\"], \\\"\[Prime]\\\", \
-Rule[MultilineFunction, None]], \\\"[\\\", \\\"t\\\", \\\"]\\\"}], \\\",\\\", \
-RowBox[{SuperscriptBox[SubscriptBox[\\\"T\\\", \\\"B\\\"], \\\"\[Prime]\\\", \
-Rule[MultilineFunction, None]], \\\"[\\\", \\\"t\\\", \\\"]\\\"}], \\\",\\\", \
-RowBox[{SuperscriptBox[SubscriptBox[\\\"T\\\", \\\"C\\\"], \\\"\[Prime]\\\", \
-Rule[MultilineFunction, None]], \\\"[\\\", \\\"t\\\", \\\"]\\\"}], \\\",\\\", \
-RowBox[{SuperscriptBox[SubscriptBox[\\\"T\\\", \\\"D\\\"], \\\"\[Prime]\\\", \
-Rule[MultilineFunction, None]], \\\"[\\\", \\\"t\\\", \\\"]\\\"}], \\\",\\\", \
-RowBox[{SuperscriptBox[SubscriptBox[\\\"T\\\", \\\"L\\\"], \\\"\[Prime]\\\", \
-Rule[MultilineFunction, None]], \\\"[\\\", \\\"t\\\", \\\"]\\\"}], \\\",\\\", \
-FractionBox[RowBox[{RowBox[{\\\"(\\\", TagBox[GridBox[{{\\\"\[Piecewise]\\\", \
-GridBox[{{RowBox[{\\\"1.9845`*^-6\\\", \\\" \\\", RowBox[{\\\"Power\\\", \
-\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\
-\"}], \\\"]\\\"}]}], RowBox[{\\\"{\\\", RowBox[{\\\"Less\\\", \\\"[\\\", \
-RowBox[{\\\"\[LeftSkeleton]\\\", \\\"3\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\
-\\\"}], \\\"}\\\"}]}, {\\\"0\\\", TagBox[\\\"True\\\", \\\"PiecewiseDefault\\\
-\", Rule[AutoDelete, True]]}}, Rule[ColumnAlignments, List[Left]], \
-Rule[ColumnSpacings, 1.2`], Rule[ColumnWidths, Automatic], \
-Rule[AllowedDimensions, List[2, Automatic]], Rule[Selectable, True], \
-Rule[Editable, True]]}}, Rule[ColumnAlignments, List[Left]], \
-Rule[ColumnSpacings, 0.5`], Rule[ColumnWidths, Automatic]], \
-\\\"Piecewise\\\", Rule[SyntaxForm, Equal], Rule[SelectWithContents, True], \
-Rule[Selectable, False], Rule[Editable, False], Rule[DeleteWithContents, \
-True]], \\\")\\\"}], \\\"+\\\", RowBox[{\\\"(\\\", TagBox[GridBox[{{\\\"\
-\[Piecewise]\\\", GridBox[{{RowBox[{\\\"3.9689999999999993`*^-8\\\", \\\" \
-\\\", RowBox[{\\\"Plus\\\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"2\
-\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \\\" \\\", RowBox[{\\\"Power\\\
-\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"2\\\", \\\"\
-\[RightSkeleton]\\\"}], \\\"]\\\"}]}], RowBox[{\\\"{\\\", \
-RowBox[{\\\"Less\\\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"3\\\", \
-\\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \\\"}\\\"}]}, {\\\"0\\\", \
-TagBox[\\\"True\\\", \\\"PiecewiseDefault\\\", Rule[AutoDelete, True]]}}, \
-Rule[ColumnAlignments, List[Left]], Rule[ColumnSpacings, 1.2`], \
-Rule[ColumnWidths, Automatic], Rule[AllowedDimensions, List[2, Automatic]], \
-Rule[Selectable, True], Rule[Editable, True]]}}, Rule[ColumnAlignments, \
-List[Left]], Rule[ColumnSpacings, 0.5`], Rule[ColumnWidths, Automatic]], \
-\\\"Piecewise\\\", Rule[SyntaxForm, Equal], Rule[SelectWithContents, True], \
-Rule[Selectable, False], Rule[Editable, False], Rule[DeleteWithContents, \
-True]], \\\")\\\"}], \\\"-\\\", RowBox[{\\\"2500\\\", \\\" \\\", \
-RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", RowBox[{SubscriptBox[\\\"T\\\", \
-\\\"A\\\"], \\\"[\\\", \\\"t\\\", \\\"]\\\"}]}], \\\"+\\\", \
-RowBox[{SubscriptBox[\\\"T\\\", \\\"U\\\"], \\\"[\\\", \\\"t\\\", \
-\\\"]\\\"}]}], \\\")\\\"}]}], \\\"-\\\", RowBox[{\\\"2500\\\", \\\" \\\", \
-RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", RowBox[{SubscriptBox[\\\"T\\\", \
-\\\"B\\\"], \\\"[\\\", \\\"t\\\", \\\"]\\\"}]}], \\\"+\\\", \
-RowBox[{SubscriptBox[\\\"T\\\", \\\"U\\\"], \\\"[\\\", \\\"t\\\", \
-\\\"]\\\"}]}], \\\")\\\"}]}], \\\"-\\\", RowBox[{\\\"2500\\\", \\\" \\\", \
-RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", RowBox[{SubscriptBox[\\\"T\\\", \
-\\\"C\\\"], \\\"[\\\", \\\"t\\\", \\\"]\\\"}]}], \\\"+\\\", \
-RowBox[{SubscriptBox[\\\"T\\\", \\\"U\\\"], \\\"[\\\", \\\"t\\\", \
-\\\"]\\\"}]}], \\\")\\\"}]}], \\\"-\\\", RowBox[{\\\"2500\\\", \\\" \\\", \
-RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", RowBox[{SubscriptBox[\\\"T\\\", \
-\\\"D\\\"], \\\"[\\\", \\\"t\\\", \\\"]\\\"}]}], \\\"+\\\", \
-RowBox[{SubscriptBox[\\\"T\\\", \\\"U\\\"], \\\"[\\\", \\\"t\\\", \
-\\\"]\\\"}]}], \\\")\\\"}]}]}], \\\"2500\\\"]}], \\\"}\\\"}]\\) = \
-\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"0.`\\\", \\\",\\\", \\\"0.`\\\", \
-\\\",\\\", \\\"0.`\\\", \\\",\\\", \\\"0.`\\\", \\\",\\\", \\\"0.`\\\", \\\",\
-\\\", \\\"0.`\\\", \\\",\\\", \\\"0.`\\\", \\\",\\\", \\\"0.`\\\", \\\",\\\", \
-\\\"0.`\\\", \\\",\\\", \\\"0.`\\\", \\\",\\\", \\\"0.`\\\", \\\",\\\", \
-\\\"0.`\\\", \\\",\\\", \\\"0.`\\\"}], \\\"}\\\"}]\\).\"",2,111,32,
-   15656322391351260557,"Local"},
+  "NDSolve","ndnum",
+   "\"Encountered non-numerical value for a derivative at \\!\\(\\*RowBox[{\\\
+\"t\\\"}]\\) == \\!\\(\\*RowBox[{\\\"0.`\\\"}]\\).\"",2,37,2,
+   15656342059115605785,"Local"},
   "MessageTemplate"]], "Message", "MSG",
  CellChangeTimes->{
   3.7789530883312216`*^9, 3.778953179297161*^9, 3.778953280079543*^9, {
    3.7789533175455823`*^9, 3.7789533224726152`*^9}, 3.778953623967516*^9, 
-   3.778954170035914*^9},
+   3.778954170035914*^9, 3.778955302918663*^9, 3.778955366982745*^9, 
+   3.778955578401841*^9, {3.778955834284836*^9, 3.7789558491160765`*^9}, 
+   3.7789562814775*^9, 3.77895631232751*^9, 3.778956499313406*^9, {
+   3.7789566239726496`*^9, 3.77895662430369*^9}},
  CellLabel->
   "During evaluation of \
-In[111]:=",ExpressionUUID->"17dc5313-7a79-47d8-a7b7-361397ccbd95"],
+In[37]:=",ExpressionUUID->"2d6dcd00-6a3c-40cc-b166-e826fbfd100f"],
 
 Cell[BoxData[
- TemplateBox[{
-  "NDSolve","icfail",
-   "\"Unable to find initial conditions that satisfy the residual function \
-within specified tolerances. Try giving initial conditions for both values \
-and derivatives of the functions.\"",2,111,33,15656322391351260557,"Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{
-  3.7789530883312216`*^9, 3.778953179297161*^9, 3.778953280079543*^9, {
-   3.7789533175455823`*^9, 3.7789533224726152`*^9}, 3.778953623967516*^9, 
-   3.778954170132945*^9},
- CellLabel->
-  "During evaluation of \
-In[111]:=",ExpressionUUID->"a57f1d47-471a-42f4-aa28-742365d1bff5"],
-
-Cell[BoxData[
- TemplateBox[{
-  "NDSolve","nlnum",
-   "\"The function value \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{RowBox[{\
-\\\"0.`\\\", \\\"\[VeryThinSpace]\\\"}], \\\"-\\\", \\\"dTAdt\\\"}], \
-\\\",\\\", RowBox[{RowBox[{\\\"0.`\\\", \\\"\[VeryThinSpace]\\\"}], \
-\\\"-\\\", \\\"dTBdt\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"0.`\\\", \\\"\
-\[VeryThinSpace]\\\"}], \\\"-\\\", \\\"dTCdt\\\"}], \\\",\\\", \
-RowBox[{RowBox[{\\\"0.`\\\", \\\"\[VeryThinSpace]\\\"}], \\\"-\\\", \\\"dTDdt\
-\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"0.`\\\", \\\"\[VeryThinSpace]\\\"}], \
-\\\"-\\\", \\\"dTLdt\\\"}], \\\",\\\", RowBox[{RowBox[{\\\"-\\\", \\\"dTUdt\\\
-\"}], \\\"+\\\", FractionBox[RowBox[{RowBox[{\\\"0.`\\\", \
-\\\"\[VeryThinSpace]\\\"}], \\\"+\\\", RowBox[{\\\"2\\\", \\\" \\\", RowBox[{\
-\\\"Piecewise\\\", \\\"[\\\", RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"{\\\", \
-RowBox[{\\\"\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\"}], \\\"}\
-\\\"}], \\\"}\\\"}], \\\",\\\", \\\"0\\\"}], \\\"]\\\"}]}]}], \
-\\\"2500\\\"]}]}], \\\"}\\\"}]\\) is not a list of numbers with dimensions \
-\\!\\(\\*RowBox[{\\\"{\\\", \\\"6\\\", \\\"}\\\"}]\\) at \
-\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"t\\\", \\\",\\\", \
-RowBox[{SubscriptBox[\\\"T\\\", \\\"A\\\"], \\\"[\\\", \\\"t\\\", \
-\\\"]\\\"}], \\\",\\\", RowBox[{SubscriptBox[\\\"T\\\", \\\"B\\\"], \
-\\\"[\\\", \\\"t\\\", \\\"]\\\"}], \\\",\\\", RowBox[{SubscriptBox[\\\"T\\\", \
-\\\"C\\\"], \\\"[\\\", \\\"t\\\", \\\"]\\\"}], \\\",\\\", \
-RowBox[{SubscriptBox[\\\"T\\\", \\\"D\\\"], \\\"[\\\", \\\"t\\\", \
-\\\"]\\\"}], \\\",\\\", RowBox[{SubscriptBox[\\\"T\\\", \\\"L\\\"], \
-\\\"[\\\", \\\"t\\\", \\\"]\\\"}], \\\",\\\", RowBox[{SubscriptBox[\\\"T\\\", \
-\\\"U\\\"], \\\"[\\\", \\\"t\\\", \\\"]\\\"}], \\\",\\\", \
-RowBox[{SuperscriptBox[SubscriptBox[\\\"T\\\", \\\"A\\\"], \\\"\[Prime]\\\", \
-Rule[MultilineFunction, None]], \\\"[\\\", \\\"t\\\", \\\"]\\\"}], \\\",\\\", \
-RowBox[{SuperscriptBox[SubscriptBox[\\\"T\\\", \\\"B\\\"], \\\"\[Prime]\\\", \
-Rule[MultilineFunction, None]], \\\"[\\\", \\\"t\\\", \\\"]\\\"}], \\\",\\\", \
-RowBox[{SuperscriptBox[SubscriptBox[\\\"T\\\", \\\"C\\\"], \\\"\[Prime]\\\", \
-Rule[MultilineFunction, None]], \\\"[\\\", \\\"t\\\", \\\"]\\\"}], \\\",\\\", \
-RowBox[{SuperscriptBox[SubscriptBox[\\\"T\\\", \\\"D\\\"], \\\"\[Prime]\\\", \
-Rule[MultilineFunction, None]], \\\"[\\\", \\\"t\\\", \\\"]\\\"}], \\\",\\\", \
-RowBox[{SuperscriptBox[SubscriptBox[\\\"T\\\", \\\"L\\\"], \\\"\[Prime]\\\", \
-Rule[MultilineFunction, None]], \\\"[\\\", \\\"t\\\", \\\"]\\\"}], \\\",\\\", \
-FractionBox[RowBox[{RowBox[{\\\"(\\\", TagBox[GridBox[{{\\\"\[Piecewise]\\\", \
-GridBox[{{RowBox[{\\\"1.9845`*^-6\\\", \\\" \\\", RowBox[{\\\"Power\\\", \
-\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"2\\\", \\\"\[RightSkeleton]\\\
-\"}], \\\"]\\\"}]}], RowBox[{\\\"{\\\", RowBox[{\\\"Less\\\", \\\"[\\\", \
-RowBox[{\\\"\[LeftSkeleton]\\\", \\\"3\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\
-\\\"}], \\\"}\\\"}]}, {\\\"0\\\", TagBox[\\\"True\\\", \\\"PiecewiseDefault\\\
-\", Rule[AutoDelete, True]]}}, Rule[ColumnAlignments, List[Left]], \
-Rule[ColumnSpacings, 1.2`], Rule[ColumnWidths, Automatic], \
-Rule[AllowedDimensions, List[2, Automatic]], Rule[Selectable, True], \
-Rule[Editable, True]]}}, Rule[ColumnAlignments, List[Left]], \
-Rule[ColumnSpacings, 0.5`], Rule[ColumnWidths, Automatic]], \
-\\\"Piecewise\\\", Rule[SyntaxForm, Equal], Rule[SelectWithContents, True], \
-Rule[Selectable, False], Rule[Editable, False], Rule[DeleteWithContents, \
-True]], \\\")\\\"}], \\\"+\\\", RowBox[{\\\"(\\\", TagBox[GridBox[{{\\\"\
-\[Piecewise]\\\", GridBox[{{RowBox[{\\\"3.9689999999999993`*^-8\\\", \\\" \
-\\\", RowBox[{\\\"Plus\\\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"2\
-\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \\\" \\\", RowBox[{\\\"Power\\\
-\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"2\\\", \\\"\
-\[RightSkeleton]\\\"}], \\\"]\\\"}]}], RowBox[{\\\"{\\\", \
-RowBox[{\\\"Less\\\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"3\\\", \
-\\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \\\"}\\\"}]}, {\\\"0\\\", \
-TagBox[\\\"True\\\", \\\"PiecewiseDefault\\\", Rule[AutoDelete, True]]}}, \
-Rule[ColumnAlignments, List[Left]], Rule[ColumnSpacings, 1.2`], \
-Rule[ColumnWidths, Automatic], Rule[AllowedDimensions, List[2, Automatic]], \
-Rule[Selectable, True], Rule[Editable, True]]}}, Rule[ColumnAlignments, \
-List[Left]], Rule[ColumnSpacings, 0.5`], Rule[ColumnWidths, Automatic]], \
-\\\"Piecewise\\\", Rule[SyntaxForm, Equal], Rule[SelectWithContents, True], \
-Rule[Selectable, False], Rule[Editable, False], Rule[DeleteWithContents, \
-True]], \\\")\\\"}], \\\"-\\\", RowBox[{\\\"2500\\\", \\\" \\\", \
-RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", RowBox[{SubscriptBox[\\\"T\\\", \
-\\\"A\\\"], \\\"[\\\", \\\"t\\\", \\\"]\\\"}]}], \\\"+\\\", \
-RowBox[{SubscriptBox[\\\"T\\\", \\\"U\\\"], \\\"[\\\", \\\"t\\\", \
-\\\"]\\\"}]}], \\\")\\\"}]}], \\\"-\\\", RowBox[{\\\"2500\\\", \\\" \\\", \
-RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", RowBox[{SubscriptBox[\\\"T\\\", \
-\\\"B\\\"], \\\"[\\\", \\\"t\\\", \\\"]\\\"}]}], \\\"+\\\", \
-RowBox[{SubscriptBox[\\\"T\\\", \\\"U\\\"], \\\"[\\\", \\\"t\\\", \
-\\\"]\\\"}]}], \\\")\\\"}]}], \\\"-\\\", RowBox[{\\\"2500\\\", \\\" \\\", \
-RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", RowBox[{SubscriptBox[\\\"T\\\", \
-\\\"C\\\"], \\\"[\\\", \\\"t\\\", \\\"]\\\"}]}], \\\"+\\\", \
-RowBox[{SubscriptBox[\\\"T\\\", \\\"U\\\"], \\\"[\\\", \\\"t\\\", \
-\\\"]\\\"}]}], \\\")\\\"}]}], \\\"-\\\", RowBox[{\\\"2500\\\", \\\" \\\", \
-RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"-\\\", RowBox[{SubscriptBox[\\\"T\\\", \
-\\\"D\\\"], \\\"[\\\", \\\"t\\\", \\\"]\\\"}]}], \\\"+\\\", \
-RowBox[{SubscriptBox[\\\"T\\\", \\\"U\\\"], \\\"[\\\", \\\"t\\\", \
-\\\"]\\\"}]}], \\\")\\\"}]}]}], \\\"2500\\\"]}], \\\"}\\\"}]\\) = \
-\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"0.`\\\", \\\",\\\", \\\"0.`\\\", \
-\\\",\\\", \\\"0.`\\\", \\\",\\\", \\\"0.`\\\", \\\",\\\", \\\"0.`\\\", \\\",\
-\\\", \\\"0.`\\\", \\\",\\\", \\\"0.`\\\", \\\",\\\", \\\"0.`\\\", \\\",\\\", \
-\\\"0.`\\\", \\\",\\\", \\\"0.`\\\", \\\",\\\", \\\"0.`\\\", \\\",\\\", \
-\\\"0.`\\\", \\\",\\\", \\\"0.`\\\"}], \\\"}\\\"}]\\).\"",2,111,34,
-   15656322391351260557,"Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{
-  3.7789530883312216`*^9, 3.778953179297161*^9, 3.778953280079543*^9, {
-   3.7789533175455823`*^9, 3.7789533224726152`*^9}, 3.778953623967516*^9, 
-   3.7789541701699443`*^9},
- CellLabel->
-  "During evaluation of \
-In[111]:=",ExpressionUUID->"d8c155f2-b99b-493f-ac49-8fbcaa624a5e"],
-
-Cell[BoxData[
- TemplateBox[{
-  "NDSolve","icfail",
-   "\"Unable to find initial conditions that satisfy the residual function \
-within specified tolerances. Try giving initial conditions for both values \
-and derivatives of the functions.\"",2,111,35,15656322391351260557,"Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{
-  3.7789530883312216`*^9, 3.778953179297161*^9, 3.778953280079543*^9, {
-   3.7789533175455823`*^9, 3.7789533224726152`*^9}, 3.778953623967516*^9, 
-   3.778954170230956*^9},
- CellLabel->
-  "During evaluation of \
-In[111]:=",ExpressionUUID->"1eb4191e-d3a9-43f5-a0a5-5c5210743a93"],
-
-Cell[BoxData[
- RowBox[{"{", "}"}]], "Output",
+ RowBox[{"NDSolve", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       SuperscriptBox[
+        SubscriptBox["T", "u"], "\[Prime]",
+        MultilineFunction->None], "[", "t", "]"}], "\[Equal]", "dTudt"}], ",", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox[
+        SubscriptBox["T", "l"], "\[Prime]",
+        MultilineFunction->None], "[", "t", "]"}], "\[Equal]", "dTldt"}], ",", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox[
+        SubscriptBox["T", "a"], "\[Prime]",
+        MultilineFunction->None], "[", "t", "]"}], "\[Equal]", "dTadt"}], ",", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox[
+        SubscriptBox["T", "b"], "\[Prime]",
+        MultilineFunction->None], "[", "t", "]"}], "\[Equal]", "dTbdt"}], ",", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox[
+        SubscriptBox["T", "c"], "\[Prime]",
+        MultilineFunction->None], "[", "t", "]"}], "\[Equal]", "dTcdt"}], ",", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox[
+        SubscriptBox["T", "d"], "\[Prime]",
+        MultilineFunction->None], "[", "t", "]"}], "\[Equal]", "dTddt"}], ",", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["T", "u"], "[", "0", "]"}], "\[Equal]", "1"}], ",", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["T", "l"], "[", "0", "]"}], "\[Equal]", "1"}], ",", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["T", "a"], "[", "0", "]"}], "\[Equal]", "1"}], ",", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["T", "b"], "[", "0", "]"}], "\[Equal]", "1"}], ",", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["T", "c"], "[", "0", "]"}], "\[Equal]", "1"}], ",", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["T", "d"], "[", "0", "]"}], "\[Equal]", "1"}]}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["T", "u"], "[", "t", "]"}], ",", 
+     RowBox[{
+      SubscriptBox["T", "l"], "[", "t", "]"}], ",", 
+     RowBox[{
+      SubscriptBox["T", "a"], "[", "t", "]"}], ",", 
+     RowBox[{
+      SubscriptBox["T", "b"], "[", "t", "]"}], ",", 
+     RowBox[{
+      SubscriptBox["T", "c"], "[", "t", "]"}], ",", 
+     RowBox[{
+      SubscriptBox["T", "d"], "[", "t", "]"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "0", ",", "650"}], "}"}]}], "]"}]], "Output",
  CellChangeTimes->{
   3.778953088339178*^9, 3.7789531793402624`*^9, 3.778953280120573*^9, {
    3.77895331761458*^9, 3.7789533225925426`*^9}, 3.778953624006521*^9, 
-   3.7789541702639055`*^9},
- CellLabel->
-  "Out[111]=",ExpressionUUID->"bb25d1b9-f528-4755-bbdd-da1266e7ab97"]
+   3.7789541702639055`*^9, 3.778955303059733*^9, 3.778955367075699*^9, 
+   3.7789555784808846`*^9, {3.778955834326832*^9, 3.778955849164164*^9}, 
+   3.7789562815314283`*^9, 3.7789563123975058`*^9, 3.7789564993754053`*^9, {
+   3.7789566240486536`*^9, 3.778956624344688*^9}},
+ CellLabel->"Out[37]=",ExpressionUUID->"b5c47434-f142-4c4f-b9d8-6230a513d49c"]
 }, Open  ]]
 },
 WindowSize->{1920, 1037},
@@ -1006,19 +862,16 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[558, 20, 430, 8, 52, "Text",ExpressionUUID->"ff071a44-4ce4-4903-a4bb-eaef10b40651"],
-Cell[991, 30, 7081, 195, 566, "Input",ExpressionUUID->"a34a74fe-25c4-40c8-8a0b-ffc98c510a3b"],
-Cell[8075, 227, 275, 6, 52, "Text",ExpressionUUID->"9cbccc13-5191-455d-92da-ed917f4548cb"],
-Cell[8353, 235, 2337, 65, 131, "Input",ExpressionUUID->"2d89688c-040c-4042-a6af-e34086cf4b1c"],
-Cell[10693, 302, 293, 7, 52, "Text",ExpressionUUID->"46cfba52-1dfd-4ea4-ab94-cf7c4ef7c13a"],
-Cell[10989, 311, 11641, 341, 924, "Input",ExpressionUUID->"0a1b27c3-4433-42d0-80b7-00ee3d78d2ca"],
-Cell[22633, 654, 251, 6, 52, "Text",ExpressionUUID->"f73ed610-7948-4b86-8388-9e61fce5f0b4"],
+Cell[991, 30, 7478, 204, 624, "Input",ExpressionUUID->"a34a74fe-25c4-40c8-8a0b-ffc98c510a3b"],
+Cell[8472, 236, 275, 6, 52, "Text",ExpressionUUID->"9cbccc13-5191-455d-92da-ed917f4548cb"],
+Cell[8750, 244, 2325, 61, 131, "Input",ExpressionUUID->"2d89688c-040c-4042-a6af-e34086cf4b1c"],
+Cell[11078, 307, 293, 7, 52, "Text",ExpressionUUID->"46cfba52-1dfd-4ea4-ab94-cf7c4ef7c13a"],
+Cell[11374, 316, 11654, 333, 956, "Input",ExpressionUUID->"0a1b27c3-4433-42d0-80b7-00ee3d78d2ca"],
+Cell[23031, 651, 251, 6, 52, "Text",ExpressionUUID->"f73ed610-7948-4b86-8388-9e61fce5f0b4"],
 Cell[CellGroupData[{
-Cell[22909, 664, 3529, 90, 653, "Input",ExpressionUUID->"a4e86915-9b8a-467a-ba50-29111f4f7db7"],
-Cell[26441, 756, 6553, 95, 236, "Message",ExpressionUUID->"17dc5313-7a79-47d8-a7b7-361397ccbd95"],
-Cell[32997, 853, 621, 13, 35, "Message",ExpressionUUID->"a57f1d47-471a-42f4-aa28-742365d1bff5"],
-Cell[33621, 868, 6555, 95, 236, "Message",ExpressionUUID->"d8c155f2-b99b-493f-ac49-8fbcaa624a5e"],
-Cell[40179, 965, 621, 13, 35, "Message",ExpressionUUID->"1eb4191e-d3a9-43f5-a0a5-5c5210743a93"],
-Cell[40803, 980, 320, 7, 49, "Output",ExpressionUUID->"bb25d1b9-f528-4755-bbdd-da1266e7ab97"]
+Cell[23307, 661, 3454, 85, 653, "Input",ExpressionUUID->"a4e86915-9b8a-467a-ba50-29111f4f7db7"],
+Cell[26764, 748, 799, 16, 35, "Message",ExpressionUUID->"2d6dcd00-6a3c-40cc-b166-e826fbfd100f"],
+Cell[27566, 766, 2804, 77, 112, "Output",ExpressionUUID->"b5c47434-f142-4c4f-b9d8-6230a513d49c"]
 }, Open  ]]
 }
 ]
